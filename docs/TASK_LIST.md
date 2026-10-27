@@ -45,13 +45,36 @@
 
 ---
 
-## Part 1: Authentication, RBAC & Core Data Models
-- [ ] Implement JWT (15-min access) + HttpOnly rotating refresh token in `apps/api`
-- [ ] Implement Argon2id password hashing and forced password change on first login
-- [ ] Implement TOTP 2-Factor Authentication for officer and admin roles (`SCRUTINY_OFFICER`, `REGIONAL_OFFICER`, `EVC_MEMBER`, `COMMITTEE_MEMBER`, `BUREAU_OFFICER`, `ADMIN`)
-- [ ] Fine-grained RBAC Guards and decorators in NestJS
-- [ ] Institution registration and profile management
-- [ ] User management APIs in Admin console
+## Part 1: Database Architecture & Integrity (COMPLETED)
+- [x] Ordered and reversible plain SQL migrations (`infra/db/migrations/001_...` through `012_...`)
+  - [x] Extensions: `uuid-ossp`, `pgcrypto`, `citext`, `pg_trgm`, `btree_gist`, `vector`
+  - [x] Enums for roles, states, tracks, clocks, document statuses, deficiency statuses, task statuses, compliance
+  - [x] Tenancy CHECK constraints on users (`INSTITUTION` requires institution_id; officers require region_id)
+  - [x] Immutability trigger on `documents` (only status and verified_by mutable)
+  - [x] Partial UNIQUE index on `clock_events` (`(application_id, clock)` WHERE `stopped_at IS NULL`)
+  - [x] Exclusion constraint on `clock_events` (`ex_no_simultaneous_open_clocks` using `btree_gist`)
+  - [x] Idempotency constraints on `compliance_alerts(item_id, threshold_days)` and `notifications(dedupe_key)`
+  - [x] Append-only audit trigger on `audit_log` prohibiting `UPDATE`, `DELETE`, `TRUNCATE`
+  - [x] SHA-256 hash chaining trigger with `pg_advisory_xact_lock` for unbroken concurrency
+  - [x] Audit chain verification function `fn_verify_audit_chain(from_seq, to_seq)`
+  - [x] State machine guard trigger `trg_applications_state_guard` and optimistic locking `version`
+  - [x] Separation of duties checks (deficiency raiser cannot clear scrutiny; decider cannot be scrutiny officer)
+  - [x] Row-Level Security (RLS) policies on core tables with dedicated `aicte_app` role
+  - [x] Functions, views (`fn_business_seconds`, `v_clock_elapsed`, `v_application_timeline`)
+  - [x] 6 Materialized views with unique indexes for concurrent refresh
+  - [x] Comprehensive indexing (every FK, composite hot queries, partial worklists, GIN trigram)
+- [x] Realistic seed generator (`infra/db/seeds/seed_generator.ts` and `pnpm seed`)
+  - [x] 4 regions, 40 institutions, 60 users covering all 7 roles
+  - [x] 85 APH clauses with 1024-dim vector embeddings
+  - [x] 600 applications distributed across all 15 states and 4 tracks
+  - [x] 150 compliance items (−30 to +400 days spectrum)
+  - [x] 120 synthetic documents with SHA-256
+  - [x] Cryptographic hash-chained audit ledger initialization
+  - [x] Concurrent refresh of all materialized views
+- [x] Generated Kysely typed schema package (`packages/db-types` and `pnpm db:types`)
+- [x] Data model documentation (`docs/DATA_MODEL.md` with Mermaid ER diagram, rules, EXPLAIN ANALYZE, and DPDP retention policy)
+- [x] Database test suite (`infra/db/tests/` and `pnpm test:db` including 200 concurrent audit inserts test)
+- [x] Backup & restore scripts (`infra/db/backup.sh`, `infra/db/restore_test.sh`)
 
 ---
 
