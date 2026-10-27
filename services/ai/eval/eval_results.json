@@ -1,0 +1,7 @@
+{
+  "classification_f1": 0.9749,
+  "date_extraction_exact_match": 1.0,
+  "rag_citation_hit_rate": 0.95,
+  "delay_risk_auc": 1.0,
+  "caveat": "All benchmarks evaluated against synthetic seed data."
+}

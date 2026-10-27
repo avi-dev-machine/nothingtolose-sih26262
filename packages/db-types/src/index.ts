@@ -144,15 +144,20 @@ export interface WorkflowTransitionTable {
 export interface SlaPolicyTable {
   id: Generated<string>;
   stage_state: ApplicationStateEnum | string;
+  state?: string;
+  track?: string;
   application_type: Generated<string>;
   owner_kind: ClockOwnerEnum | string;
   duration_hours: number;
+  target_hours?: number;
+  critical_hours?: number;
   reminder_pct: Generated<number>;
   grace_hours: Generated<number>;
   business_hours_only: Generated<boolean>;
   created_at: Generated<Date>;
   updated_at: Generated<Date>;
 }
+
 
 export interface EscalationRuleTable {
   id: Generated<string>;
@@ -251,7 +256,9 @@ export interface DocumentTable {
   application_id?: string | null;
   institution_id?: string | null;
   document_type_id?: string | null;
+  doc_type_id?: string | null;
   storage_key?: string;
+  storage_uri?: string;
   file_name?: string;
   original_name?: string;
   mime?: string;
@@ -267,6 +274,8 @@ export interface DocumentTable {
   ocr_text?: string | null;
   version: Generated<number>;
   supersedes_id?: string | null;
+  is_duplicate?: Generated<boolean>;
+  duplicate_of_id?: string | null;
   status: Generated<DocumentStatusEnum | string>;
   uploaded_by?: string;
   verified_by?: string | null;
@@ -562,8 +571,8 @@ export interface AuditLogTable {
   new_state: string | null;
   payload: Generated<any>;
   ai_assisted: Generated<boolean>;
-  prev_hash: Buffer;
-  hash: Buffer;
+  prev_hash: Generated<Buffer>;
+  hash: Generated<Buffer>;
 }
 
 export interface Database {

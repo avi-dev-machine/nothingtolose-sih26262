@@ -19,10 +19,37 @@ import { HealthController } from './health.controller.js';
 import { NotificationsModule } from './notifications/notifications.module.js';
 import { QueueModule } from './queue/queue.module.js';
 import { RealtimeModule } from './realtime/realtime.module.js';
+import { TasksModule } from './tasks/tasks.module.js';
+import { IdempotencyService } from './common/idempotency.service.js';
+import { IdempotencyInterceptor } from './common/idempotency.interceptor.js';
 
 @Module({
-  imports: [DatabaseModule, QueueModule, RealtimeModule, AuthModule, AuditModule, ClockModule, ApplicationsModule, DeficienciesModule, EvcModule, CommitteeModule, ComplianceModule, DocumentsModule, AiModule, NotificationsModule, DashboardModule, AdminModule],
+  imports: [
+    DatabaseModule,
+    QueueModule,
+    RealtimeModule,
+    AuthModule,
+    AuditModule,
+    ClockModule,
+    ApplicationsModule,
+    DeficienciesModule,
+    EvcModule,
+    CommitteeModule,
+    ComplianceModule,
+    DocumentsModule,
+    AiModule,
+    NotificationsModule,
+    DashboardModule,
+    AdminModule,
+    TasksModule,
+  ],
   controllers: [HealthController],
-  providers: [{ provide: APP_GUARD, useClass: JwtAuthGuard }, { provide: APP_GUARD, useClass: RolesGuard }],
+  providers: [
+    IdempotencyService,
+    IdempotencyInterceptor,
+    { provide: APP_GUARD, useClass: JwtAuthGuard },
+    { provide: APP_GUARD, useClass: RolesGuard },
+  ],
+  exports: [IdempotencyService, IdempotencyInterceptor],
 })
 export class AppModule {}
