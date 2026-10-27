@@ -1,0 +1,35 @@
+{
+  "name": "aicte-approval-control-tower",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AICTE Approval Control Tower - SIH26262 AICTE Regulation Bureau",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @aicte/web --filter @aicte/api --filter @aicte/worker dev",
+    "dev:api": "pnpm --filter @aicte/api dev",
+    "dev:web": "pnpm --filter @aicte/web dev",
+    "dev:worker": "pnpm --filter @aicte/worker dev",
+    "dev:ai": "pnpm --filter @aicte/ai dev",
+    "build": "pnpm --filter @aicte/shared build && pnpm --filter @aicte/api build && pnpm --filter @aicte/worker build && pnpm --filter @aicte/web build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "test:db": "tsx infra/db/tests/run_db_tests.ts",
+    "test:unit": "pnpm --filter @aicte/api test && pnpm --filter @aicte/shared test",
+    "test:e2e": "pnpm --filter @aicte/web test:e2e",
+    "seed": "pnpm --filter @aicte/api seed",
+    "db:types": "pnpm --filter @aicte/db-types build",
+    "migrate:up": "pnpm --filter @aicte/api migrate:up",
+    "migrate:down": "pnpm --filter @aicte/api migrate:down",
+    "docker:up": "docker compose -f infra/docker-compose.yml up -d",
+    "docker:down": "docker compose -f infra/docker-compose.yml down",
+    "docker:logs": "docker compose -f infra/docker-compose.yml logs -f"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "prettier": "^3.5.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

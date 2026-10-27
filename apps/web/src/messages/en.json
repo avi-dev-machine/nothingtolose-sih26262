@@ -1,0 +1,31 @@
+{
+  "common": {
+    "title": "AICTE Approval Control Tower",
+    "subtitle": "National Regulation & Compliance Intelligence Bureau (SIH26262)",
+    "login": "Login to Portal",
+    "logout": "Sign Out",
+    "dashboard": "Dashboard",
+    "applications": "Applications",
+    "complianceRadar": "Compliance Radar",
+    "evcInspections": "EVC Inspections",
+    "auditLedger": "Audit Ledger",
+    "settings": "Settings",
+    "dualClock": "Dual-Clock Timer",
+    "institutionClock": "Institution Clock",
+    "aicteClock": "AICTE Clock",
+    "status": "Status",
+    "actions": "Actions",
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिन्दी"
+  },
+  "roles": {
+    "INSTITUTION": "Institution Nodal Officer",
+    "SCRUTINY_OFFICER": "Scrutiny Officer",
+    "REGIONAL_OFFICER": "Regional Officer (RO)",
+    "EVC_MEMBER": "Expert Visiting Committee (EVC)",
+    "COMMITTEE_MEMBER": "Standing Hearing Committee (SAC/SHC)",
+    "BUREAU_OFFICER": "Bureau Officer (Advisor Approval)",
+    "ADMIN": "System Administrator"
+  }
+}

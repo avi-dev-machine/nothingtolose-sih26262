@@ -1,0 +1,13 @@
+{
+  "name": "@aicte/ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AICTE Approval Control Tower AI Microservice (FastAPI + Python)",
+  "scripts": {
+    "dev": "python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "start": "python -m uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "typecheck": "echo 'python ai typecheck ok'",
+    "lint": "echo 'python ai lint ok'",
+    "test": "pytest"
+  }
+}

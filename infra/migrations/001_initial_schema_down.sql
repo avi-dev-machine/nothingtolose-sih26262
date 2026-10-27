@@ -1,0 +1,17 @@
+-- 001_initial_schema_down.sql
+DROP TABLE IF EXISTS notifications CASCADE;
+DROP TABLE IF EXISTS ai_suggestions CASCADE;
+DROP TABLE IF EXISTS aph_clauses CASCADE;
+DROP TABLE IF EXISTS documents CASCADE;
+DROP TABLE IF EXISTS compliance_records CASCADE;
+DROP TABLE IF EXISTS committee_decisions CASCADE;
+DROP TABLE IF EXISTS evc_visits CASCADE;
+DROP TABLE IF EXISTS deficiencies CASCADE;
+DROP TRIGGER IF EXISTS trg_audit_ledger_immutable ON audit_ledger;
+DROP FUNCTION IF EXISTS prevent_audit_ledger_mutation CASCADE;
+DROP TABLE IF EXISTS audit_ledger CASCADE;
+DROP TABLE IF EXISTS clock_events CASCADE;
+DROP TABLE IF EXISTS applications CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS institutions CASCADE;
+DROP TABLE IF EXISTS regions CASCADE;

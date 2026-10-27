@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS task_assignments CASCADE;
+DROP TABLE IF EXISTS outbox_events CASCADE;
+DROP TABLE IF EXISTS notification_preferences CASCADE;
+DROP TABLE IF EXISTS notification_templates CASCADE;
+DROP TABLE IF EXISTS sla_configs CASCADE;
+DROP TABLE IF EXISTS workflow_rules CASCADE;
+DROP TABLE IF EXISTS refresh_tokens CASCADE;
+DROP TABLE IF EXISTS schema_migrations CASCADE;

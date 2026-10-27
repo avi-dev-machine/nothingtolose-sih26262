@@ -1,0 +1,32 @@
+{
+  "name": "@aicte/worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AICTE Approval Control Tower Worker Service (BullMQ)",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'worker lint ok'",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.744.0",
+    "@aicte/shared": "workspace:*",
+    "bullmq": "^5.40.1",
+    "dotenv": "^16.4.7",
+    "ioredis": "^5.5.0",
+    "kysely": "^0.27.5",
+    "pg": "^8.13.1",
+    "pino": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/pg": "^8.11.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

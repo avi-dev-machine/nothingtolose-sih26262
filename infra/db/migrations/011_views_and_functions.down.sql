@@ -1,0 +1,10 @@
+-- 011_views_and_functions.down.sql
+DROP MATERIALIZED VIEW IF EXISTS mv_deficiency_patterns CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS mv_compliance_risk CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS mv_bottlenecks CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS mv_officer_workload CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS mv_ageing_buckets CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS mv_pendency_by_stage_region CASCADE;
+DROP VIEW IF EXISTS v_application_timeline CASCADE;
+DROP VIEW IF EXISTS v_clock_elapsed CASCADE;
+DROP FUNCTION IF EXISTS fn_business_seconds CASCADE;

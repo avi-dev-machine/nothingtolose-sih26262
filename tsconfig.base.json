@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@aicte/shared": ["packages/shared/src/index.ts"],
+      "@aicte/shared/*": ["packages/shared/src/*"],
+      "@aicte/db-types": ["packages/db-types/src/index.ts"],
+      "@aicte/db-types/*": ["packages/db-types/src/*"]
+    }
+  }
+}

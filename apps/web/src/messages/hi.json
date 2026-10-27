@@ -1,0 +1,31 @@
+{
+  "common": {
+    "title": "अखिल भारतीय तकनीकी शिक्षा परिषद (एआईसीटीई) अनुमोदन नियंत्रण टॉवर",
+    "subtitle": "राष्ट्रीय विनियमन और अनुपालन निगरानी ब्यूरो (SIH26262)",
+    "login": "पोर्टल में लॉगिन करें",
+    "logout": "लॉग आउट",
+    "dashboard": "डैशबोर्ड",
+    "applications": "आवेदन",
+    "complianceRadar": "अनुपालन रडार",
+    "evcInspections": "ईवीसी निरीक्षण",
+    "auditLedger": "ऑडिट खाता",
+    "settings": "सेटिंग्स",
+    "dualClock": "दोहरी घड़ी टाइमर",
+    "institutionClock": "संस्थान घड़ी",
+    "aicteClock": "एआईसीटीई घड़ी",
+    "status": "स्थिति",
+    "actions": "कार्रवाई",
+    "language": "भाषा",
+    "english": "English",
+    "hindi": "हिन्दी"
+  },
+  "roles": {
+    "INSTITUTION": "संस्थान नोडल अधिकारी",
+    "SCRUTINY_OFFICER": "संवीक्षा अधिकारी",
+    "REGIONAL_OFFICER": "क्षेत्रीय अधिकारी (आरओ)",
+    "EVC_MEMBER": "विशेषज्ञ निरीक्षण समिति (ईवीसी)",
+    "COMMITTEE_MEMBER": "स्थायी सुनवाई समिति (एसएसी/एसएचसी)",
+    "BUREAU_OFFICER": "ब्यूरो अधिकारी (सलाहकार अनुमोदन)",
+    "ADMIN": "प्रणाली प्रशासक"
+  }
+}

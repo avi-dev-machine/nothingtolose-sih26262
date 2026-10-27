@@ -1,0 +1,8 @@
+-- 003_identity_and_tenancy.down.sql
+DROP TABLE IF EXISTS role_permissions CASCADE;
+DROP TABLE IF EXISTS permissions CASCADE;
+DROP TABLE IF EXISTS refresh_tokens CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS institutions CASCADE;
+DROP TABLE IF EXISTS regions CASCADE;
+DROP FUNCTION IF EXISTS fn_set_updated_at CASCADE;
